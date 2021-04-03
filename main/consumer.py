@@ -26,17 +26,17 @@ def callback(cd, method, properties, body):
         print('product created')
 
     if properties.content_type == 'product_updated':
-        product = Product.query.get(
-            id=data['id'])
+        product = Product.query.get(data['id'])
         product.title = data['title']
         product.image = data['image']
         db.session.commit()
+        print('product updated')
 
     if properties.content_type == 'product_deleted':
-        product = Product.query.get(
-            id=data)
+        product = Product.query.get(data)
         db.session.delete(product)
         db.session.commit()
+        print('product deleted')
 
 
 channel.basic_consume(
