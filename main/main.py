@@ -10,18 +10,15 @@ CORS(app)
 db = SQLAlchemy(app)
 
 
-class Product(db.Model):
-    id = db.Column(db.Integer, primary_key=True, autoincrement=False)
-    title = db.Column(db.String(200))
-    image = db.Column(db.String(200))
 
-
-class ProductUser(db.Model):
+class FormAnswer(db.Model):
     id = db.Column(db.Integer, primary_key=True)
-    user_id = db.Column(db.Integer)
-    product_id = db.Column(db.Integer)
+    form_id = db.Column(db.Integer)
+    question_id = db.Column(db.Integer)
+    answer_text = db.Column(db.String(200))
+    answer_key = db.Column(db.String(200))
 
-    UniqueConstraint('user_id', 'product_id', name='user_product_unique')
+    UniqueConstraint('form_id', 'question_id', name='form_user_unique')
 
 
 @app.route('/')
