@@ -2,7 +2,7 @@
 
 A microservice based product catalogue taking inspiration from Pinterest. Implemented using RabbitMQ, docker, Django, Flask and Mysql.
 
-## Working
+## WIP
 => I'm going to be adding the entire architecture of the application very soon.
 
 ### TODO
